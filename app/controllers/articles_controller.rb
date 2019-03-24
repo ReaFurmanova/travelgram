@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
-
+    @user = User.find_by(params[:email])
 
     if !params[:title].nil?
       @articles = Article.search_title(params[:title])
